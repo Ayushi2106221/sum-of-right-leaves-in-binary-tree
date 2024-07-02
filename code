@@ -1,0 +1,23 @@
+class Solution{
+    public:
+    
+    void Inorder(Node* root, int &ans){
+        if(root==NULL){
+            return;
+        }
+        if(root->right!=NULL && root->right->left==NULL && root->right->right==NULL ){
+            ans=ans+root->right->data;
+        }
+        Inorder(root->left,ans);
+        Inorder(root->right,ans);
+        
+    }
+    
+    
+    int rightLeafSum(Node* root)
+    {
+          int ans=0;
+        Inorder(root, ans);
+        return ans;
+    }
+};
